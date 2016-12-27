@@ -18,7 +18,7 @@ if [[ ! -d ${CACHE_DIR} ]]; then
 fi
 
 # check whether image file already exists
-if [[ ! -f ${IMAGEFILE} ]]; then
+if [[ ! -f ${IMAGEFILE} ]] || [[ ! -s ${IMAGEFILE} ]]; then
   rsvg-convert -a --background-color="#000000" -f png -w $((${RESOLUTION[0]}/3*2)) -o ${IMAGEFILE} ${SVG_FILE}
 fi
 
