@@ -19,7 +19,11 @@ fi
 
 # check whether image file already exists
 if [[ ! -f ${IMAGEFILE} ]] || [[ ! -s ${IMAGEFILE} ]]; then
-  rsvg-convert -a --background-color="#000000" -f png -w $((${RESOLUTION[0]}/3*2)) -o ${IMAGEFILE} ${SVG_FILE}
+  if [[ ${RESOLUTION[0]}/${RESOLUTION[1]} -le 3 ]]; then
+    rsvg-convert -a --background-color="#000000" -f png -w $((${RESOLUTION[0]}/3*2)) -o ${IMAGEFILE} ${SVG_FILE}
+  else
+    rsvg-convert -a --background-color="#000000" -f png -h $((${RESOLUTION[1]}/5*2)) -o ${IMAGEFILE} ${SVG_FILE}
+  fi
 fi
 
 # try different methods to set the background
