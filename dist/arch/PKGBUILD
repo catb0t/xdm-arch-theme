@@ -2,11 +2,11 @@
 
 pkgname=xdm-arch-theme
 pkgver=2.3.1
-pkgrel=3
+pkgrel=4
 pkgdesc="An Arch Linux theme for xdm."
 arch=("any")
 url="https://github.com/the-isz/xdm-arch-theme"
-license="GPL"
+license=("GPL")
 depends=("xorg-xdm" "xorg-xrandr" "xorg-xclock" "xorg-xwininfo" "xorg-xsetroot" "xorg-xkill" "librsvg")
 makedepends=("tar" "gzip")
 optdepends=(
@@ -16,7 +16,7 @@ optdepends=(
     "xv: another option for setting the background image" )
 source=(
     "https://github.com/the-isz/$pkgname/tarball/$pkgver"
-    "http://upload.wikimedia.org/wikipedia/en/a/ac/Archlinux-official-fullcolour.svg" 
+    "https://upload.wikimedia.org/wikipedia/commons/a/ac/Archlinux-official-fullcolour.svg"
     )
 md5sums=(
     "10d6a48c0cc80685273306aae7b9e03c"
