@@ -26,7 +26,9 @@ md5sums=(
 install=${pkgname}.install
 
 package() {
-    cd "$srcdir/the-isz-$pkgname-$(git rev-parse --short --verify $pkgver)"
+    # attempt to use the version's hash to locate the correct folder 
+    # if that fails (because there is no .git folder in AUR snapshots) just glob
+    cd "$srcdir/the-isz-$pkgname-$(git rev-parse --short --verify $pkgver || echo '*')"
 
     install -g root -o root -d ${pkgdir}/etc/X11/xdm/arch-xdm
     install -g root -o root -p -m 644 arch-xdm/* ${pkgdir}/etc/X11/xdm/arch-xdm
